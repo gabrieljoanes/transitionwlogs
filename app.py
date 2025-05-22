@@ -9,8 +9,6 @@ from utils.title_blurb import generate_title_and_blurb
 from utils.logger import save_output_to_file, logger  # Added logger import
 
 def main():
-    # Initialize OpenAI client
-    # client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
     # Compute version hash for traceability
     VERSION = compute_version_hash([
