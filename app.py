@@ -29,7 +29,6 @@ def main():
     text_input = layout_title_and_input()
 
     if st.button("✨ Générer les transitions"):
-        print(text_input, "🤔🤔🤔")
         if "TRANSITION" not in text_input:
             st.warning("Aucune balise `TRANSITION` trouvée.")
             return
@@ -94,14 +93,22 @@ def main():
             for i, t in enumerate(generated_transitions, 1):
                 st.markdown(f"{i}. _{t}_")
 
-            # Save output to file and upload to OneDrive
+            # Save output to file and upload to GoogleDrive
             filepath = save_output_to_file(title_text, chapo_text, rebuilt_text, generated_transitions)
             if filepath:
-                st.success(f"✅ L'article a été sauvegardé dans `{filepath}` et uploadé sur OneDrive")
+                print(filepath, '🤔🤔🤔')
+                st.success(f"✅ L'article a été sauvegardé dans `{filepath}` et uploadé sur GoogleDrive")
                 logger.info(f"Successfully saved and uploaded article to {filepath}")
+                
+                # Add Google Drive folder link
+                st.markdown("### 📁 Accès aux fichiers")
+                st.markdown("""
+                Vous pouvez accéder à tous les fichiers générés dans le dossier Google Drive :
+                - [Ouvrir le dossier Google Drive](https://drive.google.com/drive/folders/1LKaeW3ZcDm2GbqBNEzNxsu-S0BBB4qsU)
+                """)
             else:
-                st.warning("⚠️ L'article a été sauvegardé localement mais l'upload sur OneDrive a échoué")
-                logger.warning("Article saved locally but OneDrive upload failed")
+                st.warning("⚠️ L'article a été sauvegardé localement mais l'upload sur GoogleDrive a échoué")
+                logger.warning("Article saved locally but GoogleDrive upload failed")
 
         except Exception as e:
             error_msg = f"Une erreur est survenue: {str(e)}"
