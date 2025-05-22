@@ -31,8 +31,8 @@ logger.info("Application started")
 logger.info(f"Log file location: {os.path.abspath(log_file)}")
 
 # Replace these with your actual Azure credentials
-CLIENT_ID = os.getenv('CLIENT_ID')
-TENANT_ID = os.getenv('TENANT_ID') 
+CLIENT_ID = "98f784a9-5e71-4e57-9543-a83bc1fec732"
+TENANT_ID = "0b89b039-029d-4a76-a420-14aa6287d930"
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 
 if not all([CLIENT_ID, TENANT_ID, CLIENT_SECRET]):

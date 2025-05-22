@@ -18,7 +18,7 @@ if not API_TOKEN:
 if not API_URL:
     raise ValueError("API_URL environment variable is not set")
 
-def get_transition_from_gpt(para_a, para_b, examples, client, model="gpt-4"):
+def get_transition_from_gpt(para_a, para_b, examples, model="gpt-4"):
     """
     Generate a context-aware French transition (max 5 words)
     using few-shot prompting from the examples list and OpenAI GPT.

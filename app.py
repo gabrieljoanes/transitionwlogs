@@ -10,7 +10,7 @@ from utils.logger import save_output_to_file, logger  # Added logger import
 
 def main():
     # Initialize OpenAI client
-    client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+    # client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
     # Compute version hash for traceability
     VERSION = compute_version_hash([
@@ -45,13 +45,13 @@ def main():
             logger.info(f"Processing {len(pairs)} paragraph pairs")
 
             # Generate title and blurb from the first paragraph
-            title_blurb = generate_title_and_blurb(parts[0], client)
+            title_blurb = generate_title_and_blurb(parts[0])
             logger.info("Generated title and blurb")
 
             # Generate transitions for each paragraph pair
             generated_transitions = []
             for i, (para_a, para_b) in enumerate(pairs, 1):
-                transition = get_transition_from_gpt(para_a, para_b, examples, client)
+                transition = get_transition_from_gpt(para_a, para_b, examples)
                 generated_transitions.append(transition)
                 logger.info(f"Generated transition {i}/{len(pairs)}")
             # Rebuild the full article
