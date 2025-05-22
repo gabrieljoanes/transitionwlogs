@@ -100,9 +100,9 @@ def main():
                 
                 # Add Google Drive folder link
                 st.markdown("### 📁 Accès aux fichiers")
-                st.markdown("""
+                st.markdown(f"""
                 Vous pouvez accéder à tous les fichiers générés dans le dossier Google Drive :
-                - [Ouvrir le dossier Google Drive](https://drive.google.com/drive/folders/1LKaeW3ZcDm2GbqBNEzNxsu-S0BBB4qsU)
+                - [Ouvrir le dossier Google Drive](https://drive.google.com/drive/folders/{st.secrets.get("gdrive_folder_id")})
                 """)
             else:
                 st.warning("⚠️ L'article a été sauvegardé localement mais l'upload sur GoogleDrive a échoué")
